@@ -1,0 +1,1840 @@
+[
+  {
+    "id": "1d-free",
+    "title": "Free Gaussian dispersion",
+    "name": "Free Gaussian dispersion",
+    "dimension": 1,
+    "scientific_question": "How do a packet's centre, width and phase evolve without a potential?",
+    "evidence": "analytic",
+    "validation_status": "See the saved validation report; custom edits are unverified.",
+    "limitations": [
+      "The finite periodic domain approximates the line only before boundary wraparound."
+    ],
+    "config": {
+      "name": "1d-free",
+      "grid": {
+        "bounds": [
+          [
+            -40.0,
+            40.0
+          ]
+        ],
+        "points": [
+          1024
+        ]
+      },
+      "state": {
+        "kind": "gaussian",
+        "center": [
+          -12.0
+        ],
+        "momentum": [
+          2.0
+        ],
+        "sigma": [
+          2.0
+        ]
+      },
+      "potential": {
+        "kind": "free"
+      },
+      "solver": {
+        "method": "strang",
+        "kinetic": "spectral",
+        "dt": 0.01,
+        "duration": 8.0
+      },
+      "boundary": {
+        "kind": "periodic",
+        "width": 5.0,
+        "strength": 4.0,
+        "power": 4
+      },
+      "sampling": {
+        "observable_every": 10,
+        "snapshots": 81,
+        "screen_x": null
+      },
+      "units": {
+        "mode": "dimensionless",
+        "length_nm": 1.0
+      }
+    },
+    "evidence_record": {
+      "configuration_sha256": "12f19fcae94b2bd35f8bfac99696bace931206d812fc9ecbdead27aa7377f164",
+      "status": "report_required",
+      "check_ids": [],
+      "scope": "A matching saved check certifies only its stated configuration, duration and observable; custom edits are unverified.",
+      "conditions": {
+        "boundary": {
+          "kind": "periodic",
+          "width": 5.0,
+          "strength": 4.0,
+          "power": 4
+        },
+        "packet_momentum": [
+          2.0
+        ],
+        "packet_sigma": [
+          2.0
+        ],
+        "duration": 8.0,
+        "dt": 0.01,
+        "grid": {
+          "bounds": [
+            [
+              -40.0,
+              40.0
+            ]
+          ],
+          "points": [
+            1024
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "1d-interference",
+    "title": "Counterpropagating coherent packets",
+    "name": "Counterpropagating coherent packets",
+    "dimension": 1,
+    "scientific_question": "How does the relative phase change the interference of two freely evolving packets?",
+    "evidence": "analytic",
+    "validation_status": "See the saved validation report; custom edits are unverified.",
+    "limitations": [
+      "These are coherent components of one single-particle state, not two interacting particles."
+    ],
+    "config": {
+      "name": "1d-interference",
+      "grid": {
+        "bounds": [
+          [
+            -40.0,
+            40.0
+          ]
+        ],
+        "points": [
+          1024
+        ]
+      },
+      "state": {
+        "kind": "sum",
+        "params": {
+          "components": [
+            {
+              "state": {
+                "center": [
+                  -10.0
+                ],
+                "momentum": [
+                  2.0
+                ],
+                "sigma": [
+                  1.5
+                ]
+              },
+              "amplitude": 1.0
+            },
+            {
+              "state": {
+                "center": [
+                  10.0
+                ],
+                "momentum": [
+                  -2.0
+                ],
+                "sigma": [
+                  1.5
+                ]
+              },
+              "amplitude": 1.0
+            }
+          ]
+        }
+      },
+      "potential": {
+        "kind": "free"
+      },
+      "solver": {
+        "method": "strang",
+        "kinetic": "spectral",
+        "dt": 0.01,
+        "duration": 8.0
+      },
+      "boundary": {
+        "kind": "periodic",
+        "width": 5.0,
+        "strength": 4.0,
+        "power": 4
+      },
+      "sampling": {
+        "observable_every": 10,
+        "snapshots": 81,
+        "screen_x": null
+      },
+      "units": {
+        "mode": "dimensionless",
+        "length_nm": 1.0
+      }
+    },
+    "evidence_record": {
+      "configuration_sha256": "9765029c24f84ee27f213bd4e630f73b17da7de19a07b2f4c60ddad06a29a810",
+      "status": "report_required",
+      "check_ids": [],
+      "scope": "A matching saved check certifies only its stated configuration, duration and observable; custom edits are unverified.",
+      "conditions": {
+        "boundary": {
+          "kind": "periodic",
+          "width": 5.0,
+          "strength": 4.0,
+          "power": 4
+        },
+        "packet_momentum": [
+          2.0
+        ],
+        "packet_sigma": [
+          2.0
+        ],
+        "duration": 8.0,
+        "dt": 0.01,
+        "grid": {
+          "bounds": [
+            [
+              -40.0,
+              40.0
+            ]
+          ],
+          "points": [
+            1024
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "1d-coherent",
+    "title": "Harmonic coherent-state motion",
+    "name": "Harmonic coherent-state motion",
+    "dimension": 1,
+    "scientific_question": "Does the oscillator packet follow the exact centre trajectory without changing its width?",
+    "evidence": "analytic",
+    "validation_status": "See the saved validation report; custom edits are unverified.",
+    "limitations": [
+      "The harmonic model is a prescribed external potential; it contains no dissipation."
+    ],
+    "config": {
+      "name": "1d-coherent",
+      "grid": {
+        "bounds": [
+          [
+            -12.0,
+            12.0
+          ]
+        ],
+        "points": [
+          512
+        ]
+      },
+      "state": {
+        "kind": "ho_coherent",
+        "center": [
+          -3.0
+        ],
+        "momentum": [
+          1.0
+        ],
+        "sigma": [
+          1.0
+        ],
+        "params": {
+          "omega": [
+            1.0
+          ]
+        }
+      },
+      "potential": {
+        "kind": "harmonic",
+        "params": {
+          "omega": [
+            1.0
+          ]
+        }
+      },
+      "solver": {
+        "method": "strang",
+        "kinetic": "spectral",
+        "dt": 0.005,
+        "duration": 6.283185307179586
+      },
+      "boundary": {
+        "kind": "periodic",
+        "width": 5.0,
+        "strength": 4.0,
+        "power": 4
+      },
+      "sampling": {
+        "observable_every": 10,
+        "snapshots": 81,
+        "screen_x": null
+      },
+      "units": {
+        "mode": "dimensionless",
+        "length_nm": 1.0
+      }
+    },
+    "evidence_record": {
+      "configuration_sha256": "85580415286de1f43e2aa6ab045905c317b9b40862b93732ca3566dfec986873",
+      "status": "report_required",
+      "check_ids": [],
+      "scope": "A matching saved check certifies only its stated configuration, duration and observable; custom edits are unverified.",
+      "conditions": {
+        "boundary": {
+          "kind": "periodic",
+          "width": 5.0,
+          "strength": 4.0,
+          "power": 4
+        },
+        "packet_momentum": [
+          1.0
+        ],
+        "packet_sigma": [
+          1.0
+        ],
+        "duration": 6.283185307179586,
+        "dt": 0.005,
+        "grid": {
+          "bounds": [
+            [
+              -12.0,
+              12.0
+            ]
+          ],
+          "points": [
+            512
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "1d-squeezed",
+    "title": "Squeezed oscillator breathing",
+    "name": "Squeezed oscillator breathing",
+    "dimension": 1,
+    "scientific_question": "How does an initially squeezed state's position variance oscillate?",
+    "evidence": "analytic-moments",
+    "validation_status": "See the saved validation report; custom edits are unverified.",
+    "limitations": [
+      "The state is a Gaussian squeezed state; no quantum-optics measurement apparatus is modelled."
+    ],
+    "config": {
+      "name": "1d-squeezed",
+      "grid": {
+        "bounds": [
+          [
+            -12.0,
+            12.0
+          ]
+        ],
+        "points": [
+          512
+        ]
+      },
+      "state": {
+        "kind": "ho_squeezed",
+        "center": [
+          0.0
+        ],
+        "momentum": [
+          0.0
+        ],
+        "sigma": [
+          1.0
+        ],
+        "params": {
+          "omega": [
+            1.0
+          ],
+          "squeeze": [
+            0.65
+          ]
+        }
+      },
+      "potential": {
+        "kind": "harmonic",
+        "params": {
+          "omega": [
+            1.0
+          ]
+        }
+      },
+      "solver": {
+        "method": "strang",
+        "kinetic": "spectral",
+        "dt": 0.005,
+        "duration": 6.283185307179586
+      },
+      "boundary": {
+        "kind": "periodic",
+        "width": 5.0,
+        "strength": 4.0,
+        "power": 4
+      },
+      "sampling": {
+        "observable_every": 10,
+        "snapshots": 81,
+        "screen_x": null
+      },
+      "units": {
+        "mode": "dimensionless",
+        "length_nm": 1.0
+      }
+    },
+    "evidence_record": {
+      "configuration_sha256": "cff1835398141b7b5c1aa7a222786442d16a3b64e884f5f5297fbd6cab80fc58",
+      "status": "report_required",
+      "check_ids": [],
+      "scope": "A matching saved check certifies only its stated configuration, duration and observable; custom edits are unverified.",
+      "conditions": {
+        "boundary": {
+          "kind": "periodic",
+          "width": 5.0,
+          "strength": 4.0,
+          "power": 4
+        },
+        "packet_momentum": [
+          0.0
+        ],
+        "packet_sigma": [
+          1.0
+        ],
+        "duration": 6.283185307179586,
+        "dt": 0.005,
+        "grid": {
+          "bounds": [
+            [
+              -12.0,
+              12.0
+            ]
+          ],
+          "points": [
+            512
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "1d-barrier",
+    "title": "Finite rectangular-barrier scattering",
+    "name": "Finite rectangular-barrier scattering",
+    "dimension": 1,
+    "scientific_question": "Does packet transmission approach its momentum-weighted stationary-scattering reference?",
+    "evidence": "scattering-reference",
+    "validation_status": "See the saved validation report; custom edits are unverified.",
+    "limitations": [
+      "A finite-bandwidth packet is not a plane wave at its mean energy.",
+      "R/T is meaningful after separation; barrier discontinuities require spatial refinement."
+    ],
+    "config": {
+      "name": "1d-barrier",
+      "grid": {
+        "bounds": [
+          [
+            -60.0,
+            60.0
+          ]
+        ],
+        "points": [
+          2048
+        ]
+      },
+      "state": {
+        "kind": "gaussian",
+        "center": [
+          -20.0
+        ],
+        "momentum": [
+          2.0
+        ],
+        "sigma": [
+          3.0
+        ]
+      },
+      "potential": {
+        "kind": "rectangle",
+        "params": {
+          "height": 2.5,
+          "width": 2.0,
+          "center": 0.0
+        }
+      },
+      "solver": {
+        "method": "strang",
+        "kinetic": "spectral",
+        "dt": 0.001,
+        "duration": 22.0
+      },
+      "boundary": {
+        "kind": "cap",
+        "width": 25.0,
+        "strength": 4.0,
+        "power": 4
+      },
+      "sampling": {
+        "observable_every": 10,
+        "snapshots": 81,
+        "screen_x": null
+      },
+      "units": {
+        "mode": "dimensionless",
+        "length_nm": 1.0
+      }
+    },
+    "evidence_record": {
+      "configuration_sha256": "1cb1949805a61eb1d486b524663c7304ecd4b7c377b37be0e8c7ded193d9ce63",
+      "status": "report_required",
+      "check_ids": [
+        "preset-boundary-sensitivity"
+      ],
+      "scope": "A matching saved check certifies only its stated configuration, duration and observable; custom edits are unverified.",
+      "conditions": {
+        "boundary": {
+          "kind": "cap",
+          "width": 25.0,
+          "strength": 4.0,
+          "power": 4
+        },
+        "packet_momentum": [
+          2.0
+        ],
+        "packet_sigma": [
+          3.0
+        ],
+        "duration": 22.0,
+        "dt": 0.001,
+        "grid": {
+          "bounds": [
+            [
+              -60.0,
+              60.0
+            ]
+          ],
+          "points": [
+            2048
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "1d-double-barrier",
+    "title": "Double-barrier resonance and dwell",
+    "name": "Double-barrier resonance and dwell",
+    "dimension": 1,
+    "scientific_question": "How do finite momentum bandwidth and transient trapped probability alter resonant transmission?",
+    "evidence": "scattering-reference",
+    "validation_status": "See the saved validation report; custom edits are unverified.",
+    "limitations": [
+      "Narrow resonances can require much longer propagation and wider packets.",
+      "Interaction-region probability must be reported rather than prematurely forcing R+T=1."
+    ],
+    "config": {
+      "name": "1d-double-barrier",
+      "grid": {
+        "bounds": [
+          [
+            -70.0,
+            70.0
+          ]
+        ],
+        "points": [
+          2048
+        ]
+      },
+      "state": {
+        "kind": "gaussian",
+        "center": [
+          -24.0
+        ],
+        "momentum": [
+          2.0
+        ],
+        "sigma": [
+          4.0
+        ]
+      },
+      "potential": {
+        "kind": "double_barrier",
+        "params": {
+          "height": 2.5,
+          "width": 1.0,
+          "separation": 5.0
+        }
+      },
+      "solver": {
+        "method": "strang",
+        "kinetic": "spectral",
+        "dt": 0.005,
+        "duration": 35.0
+      },
+      "boundary": {
+        "kind": "cap",
+        "width": 25.0,
+        "strength": 4.0,
+        "power": 4
+      },
+      "sampling": {
+        "observable_every": 10,
+        "snapshots": 81,
+        "screen_x": null
+      },
+      "units": {
+        "mode": "dimensionless",
+        "length_nm": 1.0
+      }
+    },
+    "evidence_record": {
+      "configuration_sha256": "e34d4247464d20cd3031c4a28e6d5f613f7d31307afa71d20f00279b22101c9b",
+      "status": "report_required",
+      "check_ids": [
+        "preset-boundary-sensitivity"
+      ],
+      "scope": "A matching saved check certifies only its stated configuration, duration and observable; custom edits are unverified.",
+      "conditions": {
+        "boundary": {
+          "kind": "cap",
+          "width": 25.0,
+          "strength": 4.0,
+          "power": 4
+        },
+        "packet_momentum": [
+          2.0
+        ],
+        "packet_sigma": [
+          4.0
+        ],
+        "duration": 35.0,
+        "dt": 0.005,
+        "grid": {
+          "bounds": [
+            [
+              -70.0,
+              70.0
+            ]
+          ],
+          "points": [
+            2048
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "1d-double-well",
+    "title": "Double-well coherent transfer",
+    "name": "Double-well coherent transfer",
+    "dimension": 1,
+    "scientific_question": "How does the lowest eigenpair's energy splitting determine coherent probability transfer?",
+    "evidence": "discrete-eigen-reference",
+    "validation_status": "See the saved validation report; custom edits are unverified.",
+    "limitations": [
+      "This is a closed single-particle double well; it does not model chemistry or environmental decoherence.",
+      "The initial state is a normalized superposition of the two lowest discrete eigenstates."
+    ],
+    "config": {
+      "name": "1d-double-well",
+      "grid": {
+        "bounds": [
+          [
+            -12.0,
+            12.0
+          ]
+        ],
+        "points": [
+          512
+        ]
+      },
+      "state": {
+        "kind": "eigen_superposition",
+        "center": [
+          0.0
+        ],
+        "momentum": [
+          0.0
+        ],
+        "sigma": [
+          1.0
+        ],
+        "params": {
+          "indices": [
+            0,
+            1
+          ],
+          "coefficients": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "potential": {
+        "kind": "double_well",
+        "params": {
+          "height": 0.4,
+          "separation": 5.0,
+          "tilt": 0.0
+        }
+      },
+      "solver": {
+        "method": "strang",
+        "kinetic": "spectral",
+        "dt": 0.01,
+        "duration": 80.0
+      },
+      "boundary": {
+        "kind": "periodic",
+        "width": 5.0,
+        "strength": 4.0,
+        "power": 4
+      },
+      "sampling": {
+        "observable_every": 10,
+        "snapshots": 81,
+        "screen_x": null
+      },
+      "units": {
+        "mode": "dimensionless",
+        "length_nm": 1.0
+      }
+    },
+    "evidence_record": {
+      "configuration_sha256": "049bc8fb889bdc4200794b7f87759f06f85b8cc50d242d9b302452bbb5dca6de",
+      "status": "report_required",
+      "check_ids": [],
+      "scope": "A matching saved check certifies only its stated configuration, duration and observable; custom edits are unverified.",
+      "conditions": {
+        "boundary": {
+          "kind": "periodic",
+          "width": 5.0,
+          "strength": 4.0,
+          "power": 4
+        },
+        "packet_momentum": [
+          0.0
+        ],
+        "packet_sigma": [
+          1.0
+        ],
+        "duration": 80.0,
+        "dt": 0.01,
+        "grid": {
+          "bounds": [
+            [
+              -12.0,
+              12.0
+            ]
+          ],
+          "points": [
+            512
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "1d-gaussian-barrier",
+    "title": "Smooth Gaussian-barrier scattering",
+    "name": "Smooth Gaussian-barrier scattering",
+    "dimension": 1,
+    "scientific_question": "How does smooth-barrier transmission change with energy and numerical resolution?",
+    "evidence": "empirical-convergence",
+    "validation_status": "See the saved validation report; custom edits are unverified.",
+    "limitations": [
+      "Convergence and independent propagation checks establish numerical evidence, not a closed-form transmission formula."
+    ],
+    "config": {
+      "name": "1d-gaussian-barrier",
+      "grid": {
+        "bounds": [
+          [
+            -60.0,
+            60.0
+          ]
+        ],
+        "points": [
+          1024
+        ]
+      },
+      "state": {
+        "kind": "gaussian",
+        "center": [
+          -20.0
+        ],
+        "momentum": [
+          2.0
+        ],
+        "sigma": [
+          3.0
+        ]
+      },
+      "potential": {
+        "kind": "gaussian",
+        "params": {
+          "height": 2.5,
+          "sigma": 1.0,
+          "center": 0.0
+        }
+      },
+      "solver": {
+        "method": "strang",
+        "kinetic": "spectral",
+        "dt": 0.005,
+        "duration": 22.0
+      },
+      "boundary": {
+        "kind": "cap",
+        "width": 25.0,
+        "strength": 4.0,
+        "power": 4
+      },
+      "sampling": {
+        "observable_every": 10,
+        "snapshots": 81,
+        "screen_x": null
+      },
+      "units": {
+        "mode": "dimensionless",
+        "length_nm": 1.0
+      }
+    },
+    "evidence_record": {
+      "configuration_sha256": "49414010f99bd8354151e0148d9a05a529bd90f0a7b1059571ad35bbc263a25e",
+      "status": "report_required",
+      "check_ids": [
+        "preset-boundary-sensitivity"
+      ],
+      "scope": "A matching saved check certifies only its stated configuration, duration and observable; custom edits are unverified.",
+      "conditions": {
+        "boundary": {
+          "kind": "cap",
+          "width": 25.0,
+          "strength": 4.0,
+          "power": 4
+        },
+        "packet_momentum": [
+          2.0
+        ],
+        "packet_sigma": [
+          3.0
+        ],
+        "duration": 22.0,
+        "dt": 0.005,
+        "grid": {
+          "bounds": [
+            [
+              -60.0,
+              60.0
+            ]
+          ],
+          "points": [
+            1024
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "2d-free",
+    "title": "Two-dimensional free dispersion",
+    "name": "Two-dimensional free dispersion",
+    "dimension": 2,
+    "scientific_question": "Does the two-dimensional implementation reproduce the product of exact one-dimensional packets?",
+    "evidence": "analytic",
+    "validation_status": "See the saved validation report; custom edits are unverified.",
+    "limitations": [
+      "The packet is separable; the rotated-oscillator test adds a nonseparable verification case."
+    ],
+    "config": {
+      "name": "2d-free",
+      "grid": {
+        "bounds": [
+          [
+            -24.0,
+            24.0
+          ],
+          [
+            -18.0,
+            18.0
+          ]
+        ],
+        "points": [
+          256,
+          192
+        ]
+      },
+      "state": {
+        "kind": "gaussian",
+        "center": [
+          -6.0,
+          -4.0
+        ],
+        "momentum": [
+          1.0,
+          0.5
+        ],
+        "sigma": [
+          1.5,
+          1.5
+        ]
+      },
+      "potential": {
+        "kind": "free"
+      },
+      "solver": {
+        "method": "strang",
+        "kinetic": "spectral",
+        "dt": 0.01,
+        "duration": 5.0
+      },
+      "boundary": {
+        "kind": "periodic",
+        "width": 5.0,
+        "strength": 4.0,
+        "power": 4
+      },
+      "sampling": {
+        "observable_every": 10,
+        "snapshots": 81,
+        "screen_x": 6.0
+      },
+      "units": {
+        "mode": "dimensionless",
+        "length_nm": 1.0
+      }
+    },
+    "evidence_record": {
+      "configuration_sha256": "1c3adfb83a1411ae26dae66878a201852e38464d32caee5a342c1ef0a36df3d7",
+      "status": "report_required",
+      "check_ids": [],
+      "scope": "A matching saved check certifies only its stated configuration, duration and observable; custom edits are unverified.",
+      "conditions": {
+        "boundary": {
+          "kind": "periodic",
+          "width": 5.0,
+          "strength": 4.0,
+          "power": 4
+        },
+        "packet_momentum": [
+          1.0,
+          0.5
+        ],
+        "packet_sigma": [
+          1.5,
+          1.5
+        ],
+        "duration": 5.0,
+        "dt": 0.01,
+        "grid": {
+          "bounds": [
+            [
+              -24.0,
+              24.0
+            ],
+            [
+              -18.0,
+              18.0
+            ]
+          ],
+          "points": [
+            256,
+            192
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "2d-crossing",
+    "title": "Crossing coherent wave packets",
+    "name": "Crossing coherent wave packets",
+    "dimension": 2,
+    "scientific_question": "How do coherent packet components interfere while propagating through one another?",
+    "evidence": "analytic",
+    "validation_status": "See the saved validation report; custom edits are unverified.",
+    "limitations": [
+      "The components belong to one coherent state; their crossing does not simulate particle-particle collisions."
+    ],
+    "config": {
+      "name": "2d-crossing",
+      "grid": {
+        "bounds": [
+          [
+            -24.0,
+            24.0
+          ],
+          [
+            -18.0,
+            18.0
+          ]
+        ],
+        "points": [
+          256,
+          192
+        ]
+      },
+      "state": {
+        "kind": "sum",
+        "center": [
+          0.0,
+          0.0
+        ],
+        "momentum": [
+          0.0,
+          0.0
+        ],
+        "sigma": [
+          1.5,
+          1.5
+        ],
+        "params": {
+          "components": [
+            {
+              "state": {
+                "center": [
+                  -8.0,
+                  -4.0
+                ],
+                "momentum": [
+                  2.0,
+                  1.0
+                ],
+                "sigma": [
+                  1.5,
+                  1.5
+                ]
+              },
+              "amplitude": 1.0
+            },
+            {
+              "state": {
+                "center": [
+                  8.0,
+                  4.0
+                ],
+                "momentum": [
+                  -2.0,
+                  -1.0
+                ],
+                "sigma": [
+                  1.5,
+                  1.5
+                ]
+              },
+              "amplitude": 1.0
+            }
+          ]
+        }
+      },
+      "potential": {
+        "kind": "free"
+      },
+      "solver": {
+        "method": "strang",
+        "kinetic": "spectral",
+        "dt": 0.01,
+        "duration": 7.0
+      },
+      "boundary": {
+        "kind": "periodic",
+        "width": 5.0,
+        "strength": 4.0,
+        "power": 4
+      },
+      "sampling": {
+        "observable_every": 10,
+        "snapshots": 81,
+        "screen_x": 6.0
+      },
+      "units": {
+        "mode": "dimensionless",
+        "length_nm": 1.0
+      }
+    },
+    "evidence_record": {
+      "configuration_sha256": "fa667c9fdaf554d1f55053e2e644995ee8e52b9372f5a23d2e06af437a2ec649",
+      "status": "report_required",
+      "check_ids": [],
+      "scope": "A matching saved check certifies only its stated configuration, duration and observable; custom edits are unverified.",
+      "conditions": {
+        "boundary": {
+          "kind": "periodic",
+          "width": 5.0,
+          "strength": 4.0,
+          "power": 4
+        },
+        "packet_momentum": [
+          0.0,
+          0.0
+        ],
+        "packet_sigma": [
+          1.5,
+          1.5
+        ],
+        "duration": 7.0,
+        "dt": 0.01,
+        "grid": {
+          "bounds": [
+            [
+              -24.0,
+              24.0
+            ],
+            [
+              -18.0,
+              18.0
+            ]
+          ],
+          "points": [
+            256,
+            192
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "2d-orbit",
+    "title": "Coherent oscillator orbit",
+    "name": "Coherent oscillator orbit",
+    "dimension": 2,
+    "scientific_question": "Does a localized packet follow the exact two-axis harmonic orbit?",
+    "evidence": "analytic-moments",
+    "validation_status": "See the saved validation report; custom edits are unverified.",
+    "limitations": [
+      "The orbit describes expectation values of a wave function, not a classical particle trajectory."
+    ],
+    "config": {
+      "name": "2d-orbit",
+      "grid": {
+        "bounds": [
+          [
+            -10.0,
+            10.0
+          ],
+          [
+            -10.0,
+            10.0
+          ]
+        ],
+        "points": [
+          192,
+          192
+        ]
+      },
+      "state": {
+        "kind": "ho_coherent",
+        "center": [
+          3.0,
+          0.0
+        ],
+        "momentum": [
+          0.0,
+          3.0
+        ],
+        "sigma": [
+          1.0,
+          1.0
+        ],
+        "params": {
+          "omega": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "potential": {
+        "kind": "harmonic",
+        "params": {
+          "omega": [
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "solver": {
+        "method": "strang",
+        "kinetic": "spectral",
+        "dt": 0.005,
+        "duration": 6.283185307179586
+      },
+      "boundary": {
+        "kind": "periodic",
+        "width": 5.0,
+        "strength": 4.0,
+        "power": 4
+      },
+      "sampling": {
+        "observable_every": 10,
+        "snapshots": 81,
+        "screen_x": 6.0
+      },
+      "units": {
+        "mode": "dimensionless",
+        "length_nm": 1.0
+      }
+    },
+    "evidence_record": {
+      "configuration_sha256": "ae54f13dfbb04d0624d45cc45ab82103e837b68c5f3c8c6463ace49afc5d81ca",
+      "status": "report_required",
+      "check_ids": [],
+      "scope": "A matching saved check certifies only its stated configuration, duration and observable; custom edits are unverified.",
+      "conditions": {
+        "boundary": {
+          "kind": "periodic",
+          "width": 5.0,
+          "strength": 4.0,
+          "power": 4
+        },
+        "packet_momentum": [
+          0.0,
+          3.0
+        ],
+        "packet_sigma": [
+          1.0,
+          1.0
+        ],
+        "duration": 6.283185307179586,
+        "dt": 0.005,
+        "grid": {
+          "bounds": [
+            [
+              -10.0,
+              10.0
+            ],
+            [
+              -10.0,
+              10.0
+            ]
+          ],
+          "points": [
+            192,
+            192
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "2d-rotated",
+    "title": "Rotated anisotropic oscillator",
+    "name": "Rotated anisotropic oscillator",
+    "dimension": 2,
+    "scientific_question": "Can the engine reproduce coupled laboratory-axis motion and rotated Gaussian covariance?",
+    "evidence": "analytic-moments",
+    "validation_status": "See the saved validation report; custom edits are unverified.",
+    "limitations": [
+      "The normal-mode problem is analytically solvable, although the state and potential are nonseparable in display axes."
+    ],
+    "config": {
+      "name": "2d-rotated",
+      "grid": {
+        "bounds": [
+          [
+            -10.0,
+            10.0
+          ],
+          [
+            -10.0,
+            10.0
+          ]
+        ],
+        "points": [
+          192,
+          192
+        ]
+      },
+      "state": {
+        "kind": "ho_coherent",
+        "center": [
+          2.0,
+          -1.0
+        ],
+        "momentum": [
+          0.5,
+          1.0
+        ],
+        "sigma": [
+          1.0,
+          1.0
+        ],
+        "params": {
+          "omega": [
+            1.0,
+            1.5
+          ],
+          "angle": 0.5235987755982988
+        }
+      },
+      "potential": {
+        "kind": "harmonic",
+        "params": {
+          "omega": [
+            1.0,
+            1.5
+          ],
+          "angle": 0.5235987755982988
+        }
+      },
+      "solver": {
+        "method": "strang",
+        "kinetic": "spectral",
+        "dt": 0.005,
+        "duration": 6.0
+      },
+      "boundary": {
+        "kind": "periodic",
+        "width": 5.0,
+        "strength": 4.0,
+        "power": 4
+      },
+      "sampling": {
+        "observable_every": 10,
+        "snapshots": 81,
+        "screen_x": 6.0
+      },
+      "units": {
+        "mode": "dimensionless",
+        "length_nm": 1.0
+      }
+    },
+    "evidence_record": {
+      "configuration_sha256": "d0a528f154e9a3c9637a71dbcec179de48f642cd8665058d6c1b1bf0d5e64f16",
+      "status": "report_required",
+      "check_ids": [],
+      "scope": "A matching saved check certifies only its stated configuration, duration and observable; custom edits are unverified.",
+      "conditions": {
+        "boundary": {
+          "kind": "periodic",
+          "width": 5.0,
+          "strength": 4.0,
+          "power": 4
+        },
+        "packet_momentum": [
+          0.5,
+          1.0
+        ],
+        "packet_sigma": [
+          1.0,
+          1.0
+        ],
+        "duration": 6.0,
+        "dt": 0.005,
+        "grid": {
+          "bounds": [
+            [
+              -10.0,
+              10.0
+            ],
+            [
+              -10.0,
+              10.0
+            ]
+          ],
+          "points": [
+            192,
+            192
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "2d-single-slit",
+    "title": "Single-slit diffraction",
+    "name": "Single-slit diffraction",
+    "dimension": 2,
+    "scientific_question": "How does finite-aperture geometry change the outgoing probability distribution?",
+    "evidence": "empirical-convergence",
+    "validation_status": "See the saved validation report; custom edits are unverified.",
+    "limitations": [
+      "A finite-height prescribed wall is not an ideal impenetrable screen.",
+      "A density snapshot is not a detector arrival distribution."
+    ],
+    "config": {
+      "name": "2d-single-slit",
+      "grid": {
+        "bounds": [
+          [
+            -42.0,
+            42.0
+          ],
+          [
+            -30.0,
+            30.0
+          ]
+        ],
+        "points": [
+          448,
+          320
+        ]
+      },
+      "state": {
+        "kind": "gaussian",
+        "center": [
+          -12.0,
+          0.0
+        ],
+        "momentum": [
+          3.0,
+          0.0
+        ],
+        "sigma": [
+          2.0,
+          4.0
+        ]
+      },
+      "potential": {
+        "kind": "slit",
+        "params": {
+          "height": 30.0,
+          "xcenter": 0.0,
+          "thickness": 1.0,
+          "slit_width": 3.0,
+          "slit_separation": 6.0,
+          "count": 1,
+          "smoothing": 0.25
+        }
+      },
+      "solver": {
+        "method": "strang",
+        "kinetic": "spectral",
+        "dt": 0.005,
+        "duration": 11.0
+      },
+      "boundary": {
+        "kind": "cap",
+        "width": 15.0,
+        "strength": 4.0,
+        "power": 4
+      },
+      "sampling": {
+        "observable_every": 10,
+        "snapshots": 81,
+        "screen_x": 6.0
+      },
+      "units": {
+        "mode": "dimensionless",
+        "length_nm": 1.0
+      }
+    },
+    "evidence_record": {
+      "configuration_sha256": "3d215f62355a9107e9cdffcb13037606451374b1756e71fd5f5bac80ce10195a",
+      "status": "report_required",
+      "check_ids": [
+        "preset-boundary-sensitivity"
+      ],
+      "scope": "A matching saved check certifies only its stated configuration, duration and observable; custom edits are unverified.",
+      "conditions": {
+        "boundary": {
+          "kind": "cap",
+          "width": 15.0,
+          "strength": 4.0,
+          "power": 4
+        },
+        "packet_momentum": [
+          3.0,
+          0.0
+        ],
+        "packet_sigma": [
+          2.0,
+          4.0
+        ],
+        "duration": 11.0,
+        "dt": 0.005,
+        "grid": {
+          "bounds": [
+            [
+              -42.0,
+              42.0
+            ],
+            [
+              -30.0,
+              30.0
+            ]
+          ],
+          "points": [
+            448,
+            320
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "2d-double-slit",
+    "title": "Double-slit interference",
+    "name": "Double-slit interference",
+    "dimension": 2,
+    "scientific_question": "Which interference features persist under timestep, grid and wall-resolution refinement?",
+    "evidence": "empirical-convergence",
+    "validation_status": "See the saved validation report; custom edits are unverified.",
+    "limitations": [
+      "The prescribed static wall does not model measurement or wave-function collapse.",
+      "Signed screen current can include recrossings; clipping it changes the observable."
+    ],
+    "config": {
+      "name": "2d-double-slit",
+      "grid": {
+        "bounds": [
+          [
+            -42.0,
+            42.0
+          ],
+          [
+            -30.0,
+            30.0
+          ]
+        ],
+        "points": [
+          448,
+          320
+        ]
+      },
+      "state": {
+        "kind": "gaussian",
+        "center": [
+          -12.0,
+          0.0
+        ],
+        "momentum": [
+          3.0,
+          0.0
+        ],
+        "sigma": [
+          2.0,
+          4.0
+        ]
+      },
+      "potential": {
+        "kind": "slit",
+        "params": {
+          "height": 30.0,
+          "xcenter": 0.0,
+          "thickness": 1.0,
+          "slit_width": 2.0,
+          "slit_separation": 6.0,
+          "count": 2,
+          "smoothing": 0.25
+        }
+      },
+      "solver": {
+        "method": "strang",
+        "kinetic": "spectral",
+        "dt": 0.005,
+        "duration": 11.0
+      },
+      "boundary": {
+        "kind": "cap",
+        "width": 15.0,
+        "strength": 4.0,
+        "power": 4
+      },
+      "sampling": {
+        "observable_every": 10,
+        "snapshots": 81,
+        "screen_x": 6.0
+      },
+      "units": {
+        "mode": "dimensionless",
+        "length_nm": 1.0
+      }
+    },
+    "evidence_record": {
+      "configuration_sha256": "61dcdb2a724571afdec208c766b646920af1ad07199ec7af86241d3d2a0423e4",
+      "status": "report_required",
+      "check_ids": [
+        "preset-boundary-sensitivity"
+      ],
+      "scope": "A matching saved check certifies only its stated configuration, duration and observable; custom edits are unverified.",
+      "conditions": {
+        "boundary": {
+          "kind": "cap",
+          "width": 15.0,
+          "strength": 4.0,
+          "power": 4
+        },
+        "packet_momentum": [
+          3.0,
+          0.0
+        ],
+        "packet_sigma": [
+          2.0,
+          4.0
+        ],
+        "duration": 11.0,
+        "dt": 0.005,
+        "grid": {
+          "bounds": [
+            [
+              -42.0,
+              42.0
+            ],
+            [
+              -30.0,
+              30.0
+            ]
+          ],
+          "points": [
+            448,
+            320
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "2d-obstacle",
+    "title": "Scattering from a circular obstacle",
+    "name": "Scattering from a circular obstacle",
+    "dimension": 2,
+    "scientific_question": "How do an extended incident packet and a smooth circular potential redistribute probability?",
+    "evidence": "empirical-convergence",
+    "validation_status": "See the saved validation report; custom edits are unverified.",
+    "limitations": [
+      "The finite packet does not directly define a monochromatic scattering cross-section."
+    ],
+    "config": {
+      "name": "2d-obstacle",
+      "grid": {
+        "bounds": [
+          [
+            -42.0,
+            42.0
+          ],
+          [
+            -30.0,
+            30.0
+          ]
+        ],
+        "points": [
+          448,
+          320
+        ]
+      },
+      "state": {
+        "kind": "gaussian",
+        "center": [
+          -12.0,
+          0.0
+        ],
+        "momentum": [
+          3.0,
+          0.0
+        ],
+        "sigma": [
+          2.0,
+          4.0
+        ]
+      },
+      "potential": {
+        "kind": "disk",
+        "params": {
+          "height": 20.0,
+          "radius": 2.5,
+          "center": [
+            0.0,
+            0.0
+          ],
+          "smoothing": 0.3
+        }
+      },
+      "solver": {
+        "method": "strang",
+        "kinetic": "spectral",
+        "dt": 0.005,
+        "duration": 10.0
+      },
+      "boundary": {
+        "kind": "cap",
+        "width": 15.0,
+        "strength": 4.0,
+        "power": 4
+      },
+      "sampling": {
+        "observable_every": 10,
+        "snapshots": 81,
+        "screen_x": 6.0
+      },
+      "units": {
+        "mode": "dimensionless",
+        "length_nm": 1.0
+      }
+    },
+    "evidence_record": {
+      "configuration_sha256": "3d1821bc8a24b534b0a6d4131b1f83b33278837da54ecf821c25aab9d2444d4d",
+      "status": "report_required",
+      "check_ids": [
+        "preset-boundary-sensitivity"
+      ],
+      "scope": "A matching saved check certifies only its stated configuration, duration and observable; custom edits are unverified.",
+      "conditions": {
+        "boundary": {
+          "kind": "cap",
+          "width": 15.0,
+          "strength": 4.0,
+          "power": 4
+        },
+        "packet_momentum": [
+          3.0,
+          0.0
+        ],
+        "packet_sigma": [
+          2.0,
+          4.0
+        ],
+        "duration": 10.0,
+        "dt": 0.005,
+        "grid": {
+          "bounds": [
+            [
+              -42.0,
+              42.0
+            ],
+            [
+              -30.0,
+              30.0
+            ]
+          ],
+          "points": [
+            448,
+            320
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "2d-waveguide",
+    "title": "Bent finite-wall waveguide",
+    "name": "Bent finite-wall waveguide",
+    "dimension": 2,
+    "scientific_question": "How do bend geometry and transverse confinement affect transmission and reflection?",
+    "evidence": "empirical-convergence",
+    "validation_status": "See the saved validation report; custom edits are unverified.",
+    "limitations": [
+      "Finite walls permit tunnelling and the bend can excite transverse modes.",
+      "This is a single-particle external-potential model, not a material device simulation."
+    ],
+    "config": {
+      "name": "2d-waveguide",
+      "grid": {
+        "bounds": [
+          [
+            -42.0,
+            42.0
+          ],
+          [
+            -30.0,
+            30.0
+          ]
+        ],
+        "points": [
+          448,
+          320
+        ]
+      },
+      "state": {
+        "kind": "waveguide_mode",
+        "center": [
+          -12.0,
+          0.0
+        ],
+        "momentum": [
+          3.0,
+          0.0
+        ],
+        "sigma": [
+          2.0,
+          0.8
+        ],
+        "params": {
+          "mode": 0
+        }
+      },
+      "potential": {
+        "kind": "waveguide",
+        "params": {
+          "height": 25.0,
+          "width": 5.0,
+          "bend_x": 0.0,
+          "angle": 0.39269908169872414,
+          "center_y": 0.0,
+          "smoothing": 0.3
+        }
+      },
+      "solver": {
+        "method": "strang",
+        "kinetic": "spectral",
+        "dt": 0.005,
+        "duration": 10.0
+      },
+      "boundary": {
+        "kind": "cap",
+        "width": 15.0,
+        "strength": 4.0,
+        "power": 4
+      },
+      "sampling": {
+        "observable_every": 10,
+        "snapshots": 81,
+        "screen_x": 6.0
+      },
+      "units": {
+        "mode": "dimensionless",
+        "length_nm": 1.0
+      }
+    },
+    "evidence_record": {
+      "configuration_sha256": "7ab00d8d956ce8bafb8b630379ef91997448879a6d2dea0c61fb7c255772cd44",
+      "status": "report_required",
+      "check_ids": [
+        "preset-boundary-sensitivity"
+      ],
+      "scope": "A matching saved check certifies only its stated configuration, duration and observable; custom edits are unverified.",
+      "conditions": {
+        "boundary": {
+          "kind": "cap",
+          "width": 15.0,
+          "strength": 4.0,
+          "power": 4
+        },
+        "packet_momentum": [
+          3.0,
+          0.0
+        ],
+        "packet_sigma": [
+          2.0,
+          0.8
+        ],
+        "duration": 10.0,
+        "dt": 0.005,
+        "grid": {
+          "bounds": [
+            [
+              -42.0,
+              42.0
+            ],
+            [
+              -30.0,
+              30.0
+            ]
+          ],
+          "points": [
+            448,
+            320
+          ]
+        }
+      }
+    }
+  }
+]

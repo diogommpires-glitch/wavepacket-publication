@@ -1,0 +1,72 @@
+{
+  "name": "1d-squeezed",
+  "schema_version": 1,
+  "grid": {
+    "bounds": [
+      [
+        -12.0,
+        12.0
+      ]
+    ],
+    "points": [
+      512
+    ]
+  },
+  "state": {
+    "kind": "ho_squeezed",
+    "center": [
+      0.0
+    ],
+    "momentum": [
+      0.0
+    ],
+    "sigma": [
+      1.0
+    ],
+    "phase": 0.0,
+    "params": {
+      "omega": [
+        1.0
+      ],
+      "squeeze": [
+        0.65
+      ]
+    }
+  },
+  "potential": {
+    "kind": "harmonic",
+    "params": {
+      "omega": [
+        1.0
+      ]
+    }
+  },
+  "solver": {
+    "method": "strang",
+    "kinetic": "spectral",
+    "dt": 0.005,
+    "duration": 6.283185307179586
+  },
+  "boundary": {
+    "kind": "periodic",
+    "width": 5.0,
+    "strength": 4.0,
+    "power": 4
+  },
+  "sampling": {
+    "observable_every": 10,
+    "snapshots": 81,
+    "screen_x": null
+  },
+  "budget": {
+    "max_steps": 200000,
+    "max_points": 262144,
+    "max_snapshots": 128,
+    "max_output_bytes": 1073741824,
+    "max_working_bytes": 536870912
+  },
+  "units": {
+    "mode": "dimensionless",
+    "length_nm": 1.0
+  }
+}

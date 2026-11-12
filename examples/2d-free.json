@@ -1,0 +1,69 @@
+{
+  "name": "2d-free",
+  "schema_version": 1,
+  "grid": {
+    "bounds": [
+      [
+        -24.0,
+        24.0
+      ],
+      [
+        -18.0,
+        18.0
+      ]
+    ],
+    "points": [
+      256,
+      192
+    ]
+  },
+  "state": {
+    "kind": "gaussian",
+    "center": [
+      -6.0,
+      -4.0
+    ],
+    "momentum": [
+      1.0,
+      0.5
+    ],
+    "sigma": [
+      1.5,
+      1.5
+    ],
+    "phase": 0.0,
+    "params": {}
+  },
+  "potential": {
+    "kind": "free",
+    "params": {}
+  },
+  "solver": {
+    "method": "strang",
+    "kinetic": "spectral",
+    "dt": 0.01,
+    "duration": 5.0
+  },
+  "boundary": {
+    "kind": "periodic",
+    "width": 5.0,
+    "strength": 4.0,
+    "power": 4
+  },
+  "sampling": {
+    "observable_every": 10,
+    "snapshots": 81,
+    "screen_x": 6.0
+  },
+  "budget": {
+    "max_steps": 200000,
+    "max_points": 262144,
+    "max_snapshots": 128,
+    "max_output_bytes": 1073741824,
+    "max_working_bytes": 536870912
+  },
+  "units": {
+    "mode": "dimensionless",
+    "length_nm": 1.0
+  }
+}

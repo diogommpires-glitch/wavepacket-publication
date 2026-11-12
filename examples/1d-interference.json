@@ -1,0 +1,92 @@
+{
+  "name": "1d-interference",
+  "schema_version": 1,
+  "grid": {
+    "bounds": [
+      [
+        -40.0,
+        40.0
+      ]
+    ],
+    "points": [
+      1024
+    ]
+  },
+  "state": {
+    "kind": "sum",
+    "center": [
+      -10.0
+    ],
+    "momentum": [
+      2.0
+    ],
+    "sigma": [
+      2.0
+    ],
+    "phase": 0.0,
+    "params": {
+      "components": [
+        {
+          "state": {
+            "center": [
+              -10.0
+            ],
+            "momentum": [
+              2.0
+            ],
+            "sigma": [
+              1.5
+            ]
+          },
+          "amplitude": 1.0
+        },
+        {
+          "state": {
+            "center": [
+              10.0
+            ],
+            "momentum": [
+              -2.0
+            ],
+            "sigma": [
+              1.5
+            ]
+          },
+          "amplitude": 1.0
+        }
+      ]
+    }
+  },
+  "potential": {
+    "kind": "free",
+    "params": {}
+  },
+  "solver": {
+    "method": "strang",
+    "kinetic": "spectral",
+    "dt": 0.01,
+    "duration": 8.0
+  },
+  "boundary": {
+    "kind": "periodic",
+    "width": 5.0,
+    "strength": 4.0,
+    "power": 4
+  },
+  "sampling": {
+    "observable_every": 10,
+    "snapshots": 81,
+    "screen_x": null
+  },
+  "budget": {
+    "max_steps": 200000,
+    "max_points": 262144,
+    "max_snapshots": 128,
+    "max_output_bytes": 1073741824,
+    "max_working_bytes": 536870912
+  },
+  "units": {
+    "mode": "dimensionless",
+    "length_nm": 1.0
+  }
+}
